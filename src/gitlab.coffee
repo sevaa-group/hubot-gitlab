@@ -35,7 +35,7 @@ gitlabListUsers = (msg) ->
     msg.send (message)
 
 gitlabShowProject = (msg) ->
-  projectId = msg.match[2]
+  projectId = msg.match[1]
   message = ""
   gitlab.projects.show projectId, (project) ->
     message = message + "#{project.name_with_namespace}\n#{project.web_url}\nSSH URL: #{project.ssh_url_to_repo}\nHTTP URL #{project.http_url_to_repo}\nCreated: #{project.created_at}\nLast Activity: #{project.last_activity_at}\n"
