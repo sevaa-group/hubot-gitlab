@@ -1,7 +1,7 @@
 {
   "name": "hubot-gitlab-api",
   "description": "A hubot script that connects to the gitlab api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Ryan Southern <rsouthern@sevaa.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, gitlab",
