@@ -31,7 +31,7 @@ gitlabListUsers = (msg) ->
   gitlab.users.all (users) ->
     message = ""
     for user in users
-      message = messasge + "#{user.id}: #{user.name}, #{user.email}, State: #{user.state}\n"
+      message = message + "#{user.id}: #{user.name}, #{user.email}, State: #{user.state}\n"
     msg.send (message)
 
 gitlabShowProject = (msg) ->
