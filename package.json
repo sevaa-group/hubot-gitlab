@@ -1,16 +1,16 @@
 {
   "name": "hubot-gitlab-api",
   "description": "A hubot script that connects to the gitlab api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Ryan Southern <rsouthern@sevaa.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, gitlab",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-gitlab.git"
+    "url": "git://github.com/sevaa-group/hubot-gitlab.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-gitlab/issues"
+    "url": "https://github.com/sevaa-group/hubot-gitlab/issues"
   },
   "dependencies": {},
   "peerDependencies": {
