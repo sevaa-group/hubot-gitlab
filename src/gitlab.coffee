@@ -12,6 +12,7 @@
 #   gitlab list projects - list projects
 #   gitlab list users - list users
 #   gitlab show project <id> - shows details about a project
+#   gitlab show user <id> - shows details about a user
 #
 # Authors:
 #   Ryan Southern <rsouthern@sevaa.com>
@@ -53,6 +54,25 @@ gitlabShowProject = (msg) ->
         when 50 then message = message + "Owner\n"
     msg.send (message)
 
+gitlabShowUser = (msg) ->
+  userId = msg.match[1]
+  message = ""
+  gitlab.users.show userId, (user) ->
+    message = message + "User: #{user.username}\nState: #{user.state}\nURL: #{user.web_url}\nEmail: #{user.email}\n"
+    if user.is_admin
+      message = message + "Admin: yes\n"
+    else
+      message = message + "Admin: no\n"
+    if user.skype
+      message = message + "Skype: #{user.skype}\n"
+    if user.linkedin
+      message = message + "Linkedin: #{user.linkedin}\n"
+    if user.twitter
+      message = message + "Twitter: #{user.twitter}\n"
+    if user.website_url
+      message = message + "Website: #{user.website_url}\n"
+    msg.send (message)
+
 module.exports = (robot) ->
   robot.respond /gitlab list projects/i, (msg) ->
     gitlabList(msg)
@@ -63,8 +83,12 @@ module.exports = (robot) ->
   robot.respond /gitlab show project ([\w\.\-_ ]+)(, (.+))?/i, (msg) ->
     gitlabShowProject(msg)
 
+  robot.respond /gitlab show user ([\w\.\-_ ]+)(, (.+))?/i, (msg) ->
+    gitlabShowUser(msg)
+
   robot.gitlab = {
     'list projects': gitlabList
     'list users': gitlabListUsers
     'show project': gitlabShowProject
+    'show user': gitlabShowUser
   }
