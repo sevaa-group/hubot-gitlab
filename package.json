@@ -13,7 +13,7 @@
     "url": "https://github.com/sevaa-group/hubot-gitlab/issues"
   },
   "dependencies": {
-    "node-gitlab": "^1.2.1"
+    "gitlab": "^1.2.1"
   },
   "peerDependencies": {
     "hubot": "2.x"
@@ -29,7 +29,7 @@
     "hubot": "2.x",
     "matchdep": "~0.3.0",
     "mocha": "^2.1.0",
-    "node-gitlab": "^1.2.1",
+    "gitlab": "^1.2.1",
     "sinon": "^1.13.0",
     "sinon-chai": "^2.7.0"
   },
