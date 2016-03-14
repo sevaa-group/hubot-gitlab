@@ -19,4 +19,4 @@ describe 'gitlab', ->
   it 'registers a respond listener', ->
     expect(@robot.respond).to.have.been.calledWith(/gitlab show user ([\w\.\-_ ]+)(, (.+))?/i)
   it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/gitlab show project ([\w\.\-_ ]+)(, (.+))?/i)
+    expect(@robot.respond).to.have.been.calledWith(/gitlab show project ([0-9]+)(, (.+))?/i)

@@ -12,6 +12,7 @@
 #   gitlab list projects - list projects
 #   gitlab list users - list users
 #   gitlab show project <id> - shows details about a project
+#   gitlab show project keys <id> - shows the keys on a project
 #   gitlab show user <id> - shows details about a user
 #
 # Authors:
@@ -54,6 +55,14 @@ gitlabShowProject = (msg) ->
         when 50 then message = message + "Owner\n"
     msg.send (message)
 
+gitlabShowProjectKeys = (msg) ->
+  console.log msg
+  projectId = msg.match[1]
+  message = ""
+  gitlab.Project.listKeys projectId, (projectKeys) ->
+    console.log msg
+    msg.send (message)
+
 gitlabShowUser = (msg) ->
   userId = msg.match[1]
   message = ""
@@ -80,8 +89,11 @@ module.exports = (robot) ->
   robot.respond /gitlab list users/i, (msg) ->
     gitlabListUsers(msg)
 
-  robot.respond /gitlab show project ([\w\.\-_ ]+)(, (.+))?/i, (msg) ->
+  robot.respond /gitlab show project ([0-9]+)(, (.+))?/i, (msg) ->
     gitlabShowProject(msg)
+
+  robot.respond /gitlab show project keys ([0-9]+)(, (.+))?/i, (msg) ->
+    gitlabShowProjectKeys(msg)
 
   robot.respond /gitlab show user ([\w\.\-_ ]+)(, (.+))?/i, (msg) ->
     gitlabShowUser(msg)
@@ -90,5 +102,6 @@ module.exports = (robot) ->
     'list projects': gitlabList
     'list users': gitlabListUsers
     'show project': gitlabShowProject
+    'show project keys': gitlabShowProjectKeys
     'show user': gitlabShowUser
   }
