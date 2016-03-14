@@ -1,4 +1,4 @@
-# hubot-gitlab-api
+# hubot-gitlab
 
 A hubot script that connects to the gitlab api
 
