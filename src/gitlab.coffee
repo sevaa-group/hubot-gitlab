@@ -2,7 +2,7 @@
 #   Connect hubot to the gitlab api
 #
 # Dependencies:
-#   node-gitlab
+#   gitlab
 #
 # Configuration:
 #   HUBOT_GITLAB_URL
